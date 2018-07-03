@@ -25,7 +25,6 @@ namespace AmazonPrice
                 var Products = new Product[]
                 {
                     new Product{ ProductUri = $"https://www.amazon.com/Dell-FR3PK-34-Inch-Led-Lit-Monitor/dp/B01IOO4TIM", ExpectedPrice=729M },
-                    new Product{ ProductUri = $"https://www.amazon.com/gp/product/B00SMLJPIC",ExpectedPrice=211.10M }
                 };
 
                 using (var hc = new HttpClient())
@@ -35,20 +34,20 @@ namespace AmazonPrice
                         await GetProductDetailsAsync(hc, product);
                         PrintProduct(product);
                     }
-                    string month = DateTime.Today.AddMonths(1).ToString("MMMM").ToLower();                    
-                    string visabulletinUrl = $"https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2018/visa-bulletin-for-{month}-2018.html";
-                    var result = await hc.GetAsync(visabulletinUrl);
-                    if (result.StatusCode != System.Net.HttpStatusCode.OK)
-                    {
-                        Console.Write($"\n===========================================================================================================\n\n");
-                        PrintBad($"\t\tNo visa bulletin for {month}");
-                        Console.Write($"\n\n===========================================================================================================\n");
-                    }
-                    else
-                    {
-                        System.Diagnostics.Process.Start(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", visabulletinUrl);
+                    //string month = DateTime.Today.AddMonths(1).ToString("MMMM").ToLower();                    
+                    //string visabulletinUrl = $"https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin/2018/visa-bulletin-for-{month}-2018.html";
+                    //var result = await hc.GetAsync(visabulletinUrl);
+                    //if (result.StatusCode != System.Net.HttpStatusCode.OK)
+                    //{
+                    //    Console.Write($"\n===========================================================================================================\n\n");
+                    //    PrintBad($"\t\tNo visa bulletin for {month}");
+                    //    Console.Write($"\n\n===========================================================================================================\n");
+                    //}
+                    //else
+                    //{
+                    //    System.Diagnostics.Process.Start(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", visabulletinUrl);
 
-                    }
+                    //}
 
                 }
 
